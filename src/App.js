@@ -1,13 +1,14 @@
-import axios from 'axios'; 
-function App() {
+import React, {useEffect} from 'react'; 
+import {useDispatch} from 'react-redux'; 
+import {loadMovies} from './actions/moviesAction'; 
 
-  axios.get('https://api.themoviedb.org/3/movie/2/images?api_key=85ab3097ed17406d1f0a73c4321c4bca')
-  .then(function (response) {
-    console.log(response.data.backdrops);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });  
+
+function App() {
+  const dispatch = useDispatch(); 
+
+  useEffect(() => (
+    dispatch(loadMovies())
+  )); 
 
   return (
     <div className="App">
