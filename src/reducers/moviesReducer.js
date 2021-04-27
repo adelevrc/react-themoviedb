@@ -10,7 +10,12 @@ const moviesReducer = (state=initialState, action) => {
         case "FETCH_MOVIES":
             return {
                 ...state, 
-                popular: action.payload.popular
+                popular: action.payload.popular,
+                upcoming:action.payload.upcoming,
+                topRated:action.payload.topRated,
+                nowPlaying:action.payload.nowPlaying,
+
+
             }; 
         default:
             return {

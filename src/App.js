@@ -1,18 +1,26 @@
-import React, {useEffect} from 'react'; 
-import {useDispatch} from 'react-redux'; 
-import {loadMovies} from './actions/moviesAction'; 
+import React from 'react'; 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import Home from './pages/Home'; 
+import GlobalStyles from './components/GlobalStyles'; 
 
 
 function App() {
-  const dispatch = useDispatch(); 
-
-  useEffect(() => (
-    dispatch(loadMovies())
-  )); 
-
   return (
     <div className="App">
+      <GlobalStyles />
       <h1> Hello World ! </h1>
+  
+        <Router>
+          <Switch>
+            <Route path="/">
+              <Home />
+              </Route>
+          </Switch>
+        </Router>
     </div>
   );
 }
