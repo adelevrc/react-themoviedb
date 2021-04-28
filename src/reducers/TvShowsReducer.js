@@ -1,5 +1,6 @@
 const initialState = {
-    popular : [],
+    popularTvShows : [],
+    topRated: [],
 }
 
 const tvShowsReducer = (state=initialState, action) => {
@@ -7,7 +8,8 @@ const tvShowsReducer = (state=initialState, action) => {
         case "FETCH_TV_SHOWS":
             return {
                 ...state, 
-                popular: action.payload.popular,
+                popularTvShows: action.payload.popularTvShows,
+                topRated: action.payload.topRated,
             }; 
         default:
             return {

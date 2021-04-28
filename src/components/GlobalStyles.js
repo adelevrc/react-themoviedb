@@ -19,6 +19,11 @@ p{
     font-size:0.7rem; 
     font-weight:400;
 }
+
+button{
+
+}
+button:focus{background-color:red;}
 `; 
 
 export default GlobalStyles; 

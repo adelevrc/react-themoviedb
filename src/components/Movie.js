@@ -1,34 +1,25 @@
 import React from 'react'; 
-import {smallImageSizePath} from '../utils'; 
+import {smallPostersizePath} from '../utils'; 
 import styled from 'styled-components'; 
 import { motion } from 'framer-motion'; 
 
 
 const Movie = ({title, released, id, poster}) => {
 
-    const imageURL = `${smallImageSizePath}${poster}`; 
+    const imageURL = `${smallPostersizePath}${poster}`; 
     console.log(imageURL);
     return (
-        <Cards>
-            <StyledCardsLine>
+     
+            <div>
                 <Card>
-                    <img src={`${smallImageSizePath}${poster}`} alt={title}></img>
+                    <img src={`${smallPostersizePath}${poster}`} alt={title}></img>
                     <h3> {title} </h3>
                     <p> {released} </p>
                 </Card>
-            </StyledCardsLine>
-        </Cards>
+            </div>
+  
     )
 }
-
-
-
-const StyledCardsLine = styled(motion.div)`
-    display:inline-block;
-`; 
-const Cards = styled(motion.div)`
-display:flex;
-`
 
 const Card = styled(motion.div)`
     display:flex; 
