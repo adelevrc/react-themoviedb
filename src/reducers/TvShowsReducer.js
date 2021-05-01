@@ -1,6 +1,6 @@
 const initialState = {
     popularTvShows : [],
-    topRated: [],
+    topRatedTvShows: [],
 }
 
 const tvShowsReducer = (state=initialState, action) => {
@@ -9,7 +9,7 @@ const tvShowsReducer = (state=initialState, action) => {
             return {
                 ...state, 
                 popularTvShows: action.payload.popularTvShows,
-                topRated: action.payload.topRated,
+                topRatedTvShows: action.payload.topRatedTvShows,
             }; 
         default:
             return {

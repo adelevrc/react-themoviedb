@@ -8,7 +8,7 @@ export const loadTvShows = () => async (dispatch) => {
         type:"FETCH_TV_SHOWS", 
         payload: {
             popularTvShows: popularTvShows.data.results,
-            topRated: topRatedTvShows.data.results, 
+            topRatedTvShows: topRatedTvShows.data.results, 
         },
     });
 };

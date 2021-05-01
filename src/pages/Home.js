@@ -3,14 +3,15 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion'; 
 
 import Popular from '../components/Popular'; 
+import TopRated from '../components/TopRated'; 
 
 const Home= () => {
 
 
     return(
         <StyledHome>
-            <h1> Populaires  </h1>
             <Popular /> 
+            <TopRated />
         </StyledHome>
     )
 }

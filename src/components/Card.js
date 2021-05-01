@@ -1,35 +1,41 @@
 import React from 'react'; 
 import {smallPostersizePath} from '../utils'; 
+import {useDispatch} from 'react-redux'; 
 import styled from 'styled-components'; 
 import { motion } from 'framer-motion'; 
+import {loadMovieDetail} from '../actions/movieDetailAction';
+import { Link } from 'react-router-dom'; 
 
 
 const Movie = ({title, released, id, poster}) => {
-
+    const dispatch = useDispatch();
     const imageURL = `${smallPostersizePath}${poster}`; 
-    console.log(imageURL);
+    const loadDetailslHandler = () => {
+        dispatch(loadMovieDetail(id))
+    }
     return (
      
             <div>
-                <Card>
-                    <img src={`${smallPostersizePath}${poster}`} alt={title}></img>
+                <StyledCard>
+                    <Link to={`movies/${id}`}>
+                        <img src={`${imageURL}`} alt={title} onClick={loadDetailslHandler}></img>
+                    </Link>
                     <h3> {title} </h3>
                     <p> {released} </p>
-                </Card>
+                </StyledCard>
             </div>
   
     )
 }
 
-const Card = styled(motion.div)`
+const StyledCard = styled(motion.div)`
     display:flex; 
     flex-direction:column; 
     border-radius:10px;
     background:transparent; 
-    margin: 1rem; 
+    margin: 0.5rem; 
     overflow:hidden;
     width:10rem; 
-    padding-left:0.5rem; 
     img{
         height:30vh;
         object-fit:cover;

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'; 
-import {Link} from 'react-router-dom'; 
 import { loadMovies } from '../actions/moviesAction'; 
 import { loadTvShows } from '../actions/TvShowsAction'; 
 import { useDispatch, useSelector } from 'react-redux'; 
@@ -23,14 +22,13 @@ const Popular = () => {
         
     const [moviesSelected, setMovieSelected] = useState(true); 
     const [tvShowsSelected, settvShowsSelected] = useState(false); 
-    const {popular} = useSelector((state) => state.movies)
-    const {popularTvShows} = useSelector((state) => state.tvShows)
+    const {topRated} = useSelector((state) => state.movies)
+    const {topRatedTvShows} = useSelector((state) => state.tvShows)
 
     const ToggleHandler = () => {
         setMovieSelected(!moviesSelected); 
         settvShowsSelected(!tvShowsSelected); 
     }
-
 
     return (
         <div>
@@ -53,20 +51,18 @@ const Popular = () => {
              
             </SelectorWrap>
 
-            <h2> Populaires  </h2>
+            <h2> Les mieux notés  </h2>
 
             { moviesSelected && 
             <div>
                 <SliderPopular variants={fadeIn} initial="hidden" animate="show">
-                    
-                    {popular.map(movie => (
-                            <Card
-                                title={movie.original_title}
-                                released={movie.release_date}
-                                id={movie.id}
-                                poster={movie.poster_path}
-                                key={movie.id}
-                            />
+                    {topRated.map(movie => (
+                        <Card
+                            title={movie.original_title}
+                            released={movie.release_date}
+                            id={movie.id}
+                            poster={movie.poster_path}
+                        />
                     ))}
                 </SliderPopular>
             </div>
@@ -74,14 +70,12 @@ const Popular = () => {
             { tvShowsSelected && 
             <div>
                 <SliderPopular variants={fadeIn} initial="hidden" animate="show">
-                    {popularTvShows.map(tvShow => (
-
+                    {topRatedTvShows.map(tvShow => (
                         <Card
                             title={tvShow.original_title}
                             released={tvShow.release_date}
                             id={tvShow.id}
                             poster={tvShow.poster_path}
-                            key={tvShow.id}
                         />
                     ))}
                     </SliderPopular>
