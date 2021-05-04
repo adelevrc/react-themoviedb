@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react'; 
-import {Link} from 'react-router-dom'; 
 import { loadMovies } from '../actions/moviesAction'; 
 import { loadTvShows } from '../actions/TvShowsAction'; 
 import { useDispatch, useSelector } from 'react-redux'; 
 import styled from 'styled-components'; 
 import { motion } from 'framer-motion'; 
 import {fadeIn } from '../animations'; 
-
 import Card from './Card'; 
-
-
 
 const Popular = () => {
     const dispatch = useDispatch(); 
@@ -58,7 +54,6 @@ const Popular = () => {
             { moviesSelected && 
             <div>
                 <SliderPopular variants={fadeIn} initial="hidden" animate="show">
-                    
                     {popular.map(movie => (
                             <Card
                                 title={movie.original_title}

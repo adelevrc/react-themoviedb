@@ -5,26 +5,28 @@ import {
   Route,
 } from "react-router-dom";
 import Home from './pages/Home'; 
+import Details from './pages/Details'; 
 import GlobalStyles from './components/GlobalStyles'; 
 
 
 function App() {
   return (
     <div className="App">
-      <GlobalStyles />
-      <h1> Hello World ! </h1>
-  
+      <GlobalStyles />  
         <Router>
           <Switch>
 
             <Route path="/" exact>
               <Home />
-              </Route>
+            </Route>
 
-              <Route path="movies/:id">
-              <Home />
-              </Route>
-              
+            <Route path="/movies/:id">
+              <Details />
+            </Route>
+
+
+           
+
           </Switch>
         </Router>
     </div>
