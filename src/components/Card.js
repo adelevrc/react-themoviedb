@@ -13,6 +13,7 @@ const Movie = ({title, released, id, poster}) => {
     const loadDetailslHandler = () => {
         dispatch(loadMovieDetail(id))
     }
+
     return (
      
             <div>

@@ -1,5 +1,7 @@
 const initialState = {
+    genres: [],
     movie:{},
+    isLoading: true
 }; 
 
 const movieDetailsReducer = (state=initialState, action) => {
@@ -8,7 +10,13 @@ const movieDetailsReducer = (state=initialState, action) => {
             return{
                 ...state, 
                 movie: action.payload.movie,
+                isLoading: false,
             }; 
+        case "LOADING_DETAIL":
+            return{
+                ...state, 
+                isLoading: true,
+            }
         default: 
             return{...state}
     }

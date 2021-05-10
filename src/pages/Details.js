@@ -11,19 +11,17 @@ const Details = () => {
         ),[dispatch]); 
     
     const {movie} = useSelector((state) => state.movieDetails); 
-    console.log(movie);
-
     return (
         <div>
-            {movie.map(movieDetail=> (
-                <CardDetails
-                    title={movieDetail.original_title}
-                    released={movieDetail.release_date}
-                    id={movieDetail.id}
-                    poster={movieDetail.poster_path}
-                    key={movieDetail.id}
-                    />
-            ))}
+            <CardDetails 
+               title={movie.original_title}
+               released={movie.release_date}
+               backdrop={movie.backdrop_path}
+               key={movie.id}
+               genres={movie.genres}
+               overview={movie.overview}
+
+            />
         </div>
     )
 }
