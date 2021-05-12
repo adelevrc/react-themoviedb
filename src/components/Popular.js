@@ -4,8 +4,8 @@ import { loadTvShows } from '../actions/TvShowsAction';
 import { useDispatch, useSelector } from 'react-redux'; 
 import styled from 'styled-components'; 
 import { motion } from 'framer-motion'; 
-import {fadeIn } from '../animations'; 
-import Card from './Card'; 
+import {fadeIn } from '../animations';
+import Card from './Card';
 
 const Popular = () => {
     const dispatch = useDispatch(); 
@@ -18,13 +18,13 @@ const Popular = () => {
         ),[dispatch]);
         
     const [moviesSelected, setMovieSelected] = useState(true); 
-    const [tvShowsSelected, settvShowsSelected] = useState(false); 
+    const [tvShowsSelected, setTvShowsSelected] = useState(false);
     const {popular} = useSelector((state) => state.movies)
     const {popularTvShows} = useSelector((state) => state.tvShows)
 
     const ToggleHandler = () => {
         setMovieSelected(!moviesSelected); 
-        settvShowsSelected(!tvShowsSelected); 
+        setTvShowsSelected(!tvShowsSelected);
     }
 
 

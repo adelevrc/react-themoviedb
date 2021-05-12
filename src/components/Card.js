@@ -1,5 +1,5 @@
 import React from 'react'; 
-import {smallPostersizePath} from '../utils'; 
+import {smallPosterSizePath} from '../utils/ImageSize';
 import {useDispatch} from 'react-redux'; 
 import styled from 'styled-components'; 
 import { motion } from 'framer-motion'; 
@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 const Movie = ({title, released, id, poster}) => {
     const dispatch = useDispatch();
-    const imageURL = `${smallPostersizePath}${poster}`; 
+    const imageURL = `${smallPosterSizePath}${poster}`;
     const loadDetailslHandler = () => {
         dispatch(loadMovieDetail(id))
     }

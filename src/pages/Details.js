@@ -17,10 +17,13 @@ const Details = () => {
                title={movie.original_title}
                released={movie.release_date}
                backdrop={movie.backdrop_path}
+               poster={movie.poster_path}
                key={movie.id}
                genres={movie.genres}
                overview={movie.overview}
-
+               runtime={movie.runtime}
+               tagline={movie.tagline}
+               voteAverage={movie.vote_average}
             />
         </div>
     )

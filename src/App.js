@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-} from "react-router-dom";
+} from 'react-router-dom';
 import Home from './pages/Home'; 
 import Details from './pages/Details'; 
 import GlobalStyles from './components/GlobalStyles'; 
@@ -23,9 +23,6 @@ function App() {
             <Route path="/movies/:id">
               <Details />
             </Route>
-
-
-           
 
           </Switch>
         </Router>
