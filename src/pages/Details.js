@@ -8,8 +8,17 @@ const Details = () => {
     const {crew} = useSelector((state) => state.credits.credits);
     const {cast} = useSelector((state) => state.credits.credits);
 
+    const retrieveDatafromCredits = async (credits) => {
+        const crew = await credits
+        const crewJob = await crew.map (y => y.job)
+        const JobArray = []
+        crew.forEach(element => JobArray.push(element.job))
+        return crewJob
+    }
+
+    retrieveDatafromCredits(crew).then(r => console.log(r))
+
     return (
-        <div>
             <CardDetails
                 key={movie.id}
                 title={movie.original_title}
@@ -24,7 +33,6 @@ const Details = () => {
                 cast={cast}
                 crew={crew}
             />
-        </div>
     )
 }
 
