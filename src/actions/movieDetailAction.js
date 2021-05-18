@@ -1,5 +1,5 @@
 import axios from 'axios'; 
-import {movieDetailsURL} from '../api'; 
+import {movieDetailsURL} from '../api';
 
 export const loadMovieDetail = (id) => async (dispatch) => {
 

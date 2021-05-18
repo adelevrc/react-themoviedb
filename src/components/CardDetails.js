@@ -5,10 +5,9 @@ import {CircularProgressBar} from '../utils/CircularProgressBar';
 import styled from 'styled-components';
 
 
-const CardDetails = ({title, released,genres,backdrop, overview, poster, runtime, tagline, voteAverage }) => {
-
-
+const CardDetails = ({title, released,genres,backdrop, overview, poster, runtime, tagline, voteAverage, cast, crew }) => {
     const {isLoading} = useSelector((state) => state.movieDetails)
+
     const backdropURL = `${mediumBackdropPath}/${backdrop}`;
     const posterURL = `${largePosterSizePath}${poster}`;
 
@@ -25,7 +24,7 @@ const CardDetails = ({title, released,genres,backdrop, overview, poster, runtime
             <div>
                 <StyledImage>
                     <Poster src={posterURL}/>
-                    <Background style={{ backgroundImage: `url(${ backdropURL })`, width:`100%`, backgroundRepeat:`no-repeat `,
+                    <Background style={{ backgroundImage: `url(${ backdropURL })`,
                     }} />
                 </StyledImage>
                 <Content>
@@ -38,7 +37,7 @@ const CardDetails = ({title, released,genres,backdrop, overview, poster, runtime
                                 <span> {genre.name}, </span>
                             ))}
                             <div className="round"/>
-                            <p> {convertedTime}</p>s
+                            <p> {convertedTime}</p>
                         </div>
                     </div>
 
@@ -65,7 +64,7 @@ const Poster = styled.img`
 `
 const Background = styled.div`
     z-index:-1;
-    width:100%; 
+    width:100%;
     height:70vh; 
     background-repeat: no-repeat;
     background :linear-gradient(to right, rgba(3.14%, 1.96%, 3.14%, 1.00) 150px, rgba(3.14%, 1.96%, 3.14%, 0.84) 100%); 

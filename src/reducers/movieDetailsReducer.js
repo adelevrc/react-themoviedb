@@ -1,5 +1,4 @@
 const initialState = {
-    genres: [],
     movie:{},
     isLoading: true
 }; 

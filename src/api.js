@@ -25,3 +25,6 @@ export const popularTvShowsURL = () => `${base_url}${popular_TV_shows}`;
 export const topRatedTvShowsURL = () => `${base_url}${topRated_TV_shows}`; 
 export const tvShowDetailsURL = (tvShow_id) => `${base_url}tv/${tvShow_id}?api_key=${API_KEY}`; 
 
+// CREW
+
+export const movieCrewURL = (movie_id) => `${base_url}movie/${movie_id}/credits?api_key=${API_KEY}`;

@@ -4,14 +4,17 @@ import {useDispatch} from 'react-redux';
 import styled from 'styled-components'; 
 import { motion } from 'framer-motion'; 
 import {loadMovieDetail} from '../actions/movieDetailAction';
+import {loadMovieCredits} from '../actions/movieCrewAction';
 import { Link } from 'react-router-dom'; 
 
 
 const Movie = ({title, released, id, poster}) => {
     const dispatch = useDispatch();
     const imageURL = `${smallPosterSizePath}${poster}`;
-    const loadDetailslHandler = () => {
-        dispatch(loadMovieDetail(id))
+
+    const loadDetailsHandler = () => {
+        dispatch(loadMovieDetail(id));
+        dispatch(loadMovieCredits(id));
     }
 
     return (
@@ -19,7 +22,7 @@ const Movie = ({title, released, id, poster}) => {
             <div>
                 <StyledCard>
                     <Link to={`movies/${id}`}>
-                        <img src={`${imageURL}`} alt={title} onClick={loadDetailslHandler}></img>
+                        <img src={`${imageURL}`} alt={title} onClick={loadDetailsHandler}></img>
                     </Link>
                     <h3> {title} </h3>
                     <p> {released} </p>
