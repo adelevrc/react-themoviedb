@@ -9,11 +9,16 @@ const Details = () => {
     const {cast} = useSelector((state) => state.credits.credits);
 
     const retrieveDatafromCredits = async (credits) => {
+        // je veux récupérer tous les crédits
+        // je veux ensuite séparer le crew du cast pour ne récupérer que le crew
+        // je veux comparer le job de chaque agent où le job dans être 'Producer'
+        // je filtre ces différentes clefs pour les enregistrer dans un noouveau tableau
+        // je les affiche à l'écran
+
         const crew = await credits
-        const crewJob = await crew.map (y => y.job)
-        const JobArray = []
-        crew.forEach(element => JobArray.push(element.job))
-        return crewJob
+
+        const newCrew = crew.filter(person => person.job === 'Producer')
+        return newCrew
     }
 
     retrieveDatafromCredits(crew).then(r => console.log(r))
